@@ -7,19 +7,23 @@ _Last updated: 2026-11-22_
 ---
 
 ## Current milestone
-**M0: Engine + tests + solver**
+**M0: Engine + tests + solver**: the core is done once PR #4 merges.
 
 ## Done recently
-- PR #1 merged: monorepo + day-one tooling (pnpm, Turborepo, strict TS, ESLint, Prettier, Husky, commitlint, Vitest, CI, dev container, `@crab-game/config`).
+- PR #2 merged: `packages/engine` (rules, 44 tests incl. property tests, 100% coverage).
+- PR #3 merged: `packages/solver` + `pnpm solve <file>` (par, optimal-solution count, reachable + stuck states; cross-checked against brute force).
 
 ## In progress
-- PR #2 (`feat/engine`): `packages/engine` built test-first: `parseLevel`/`validateLevel`, `initialState`, `step`, `replay`, `RULES_VERSION = 1`. 44 tests, including fast-check property tests for the engineering.md §5 invariants; 100% coverage (gate 95%). Spec v0.4.1 records API details (dead crabs leave `GameState.crabs`, events carry `subStep`, levels need ≥ 1 crab).
+- PR #4 (`feat/levels`): `packages/levels` with the build step (`pnpm levels:build`: hash, par, golden solution into a committed bundle), `pnpm levels:check` in CI (enforces the version-bump rules), golden replay tests, and the 3 approved onboarding levels: w1-01 moving together (par 6), w1-02 walls separate crabs (par 5), w1-03 water is deadly (par 6).
 
 ## Next up
-1. Open + squash-merge PR #2 (developer does this on github.com).
-2. Turn on branch protection for `main` (PR required, CI green, up to date, no force-push, squash merge only). Done in GitHub settings.
-3. PR #3: levels package (validation + build step with hash/par/golden solution), solver CLI (`pnpm solve`), 3 sample levels; `levels:check` script + CI level-pipeline step.
-4. Still owed from M0: i18n setup (with `apps/web`), postmortem template, GitHub issue board + labels.
+1. Squash-merge PR #4, then turn on branch protection for `main` in GitHub settings (PR required, CI check "Typecheck, lint, test, build" required, up to date, no force-push, squash only).
+2. Finish M0 chores: postmortem template; GitHub labels + issue board (by hand on github.com).
+3. M1 start: `apps/web` (Vite + React + PixiJS) with i18n set up from the start, including the level names: w1-01 "Moving together", w1-02 "Walls separate crabs", w1-03 "Water is deadly" (working titles; `nameKey`s already in the level files).
+4. Next levels (to reach M1's 10): crabs block each other, then lava (spec §10.1).
+
+## Ideas parked
+- Level generator (random maps + solver filters, we curate). Agreed to revisit later (M4 content), not now.
 
 ## Blockers / waiting on
 - None. No `gh` CLI on purpose: the developer opens and squash-merges PRs on github.com; Claude pushes branches and drafts PR descriptions.
@@ -28,6 +32,7 @@ _Last updated: 2026-11-22_
 - Stack: Vite + React + TypeScript; PixiJS inside React for the board only; pure TS rules engine shared by web and solver.
 - Launch = public static website on our own domain; no backend, accounts or leaderboards.
 - Developer is on Windows: LF line endings via `.gitattributes`; `core.autocrlf input`. pnpm installed globally via npm (corepack enable needs admin).
+- Install scripts of dependencies must be allowed/denied in `pnpm-workspace.yaml` (`allowBuilds`); esbuild is denied.
 - Tool versions pinned exactly. TypeScript held at 6.0.3 because typescript-eslint 8.x supports TS < 6.1.
 - pnpm enforces a minimum release age: pin versions at least a day or two old instead of adding `minimumReleaseAgeExclude` (pnpm adds it on its own when installing a too-new version; revert that).
 - Open questions are tracked in spec §11 (game name/domain, art style, hosting, swipe, timer formula, stars, launch channels).

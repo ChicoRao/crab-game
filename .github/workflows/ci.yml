@@ -41,7 +41,10 @@ jobs:
       - name: Test
         run: pnpm test
 
-      # Level pipeline (CI step 5) is added with packages/levels and the solver.
+      # Level pipeline (docs/engineering.md §6 step 5): validate, solve, and fail if the bundle
+      # is stale or a par/solution changed without a level version or RULES_VERSION bump.
+      - name: Levels
+        run: pnpm levels:check
 
       - name: Build
         run: pnpm build

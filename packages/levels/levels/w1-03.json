@@ -1,0 +1,8 @@
+{
+  "id": "w1-03",
+  "nameKey": "levels.w1-03.name",
+  "version": 1,
+  "map": ["~~~~~~", "~CC..~", "~~~..~", "~GG..~", "~~~~~~"],
+  "entities": [],
+  "timeLimitSec": null
+}

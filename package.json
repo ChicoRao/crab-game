@@ -14,7 +14,9 @@
     "format:check": "prettier --check .",
     "test": "turbo run test",
     "build": "turbo run build",
-    "solve": "tsx packages/solver/src/bin.ts"
+    "solve": "tsx packages/solver/src/bin.ts",
+    "levels:build": "tsx packages/levels/src/cli.ts build",
+    "levels:check": "tsx packages/levels/src/cli.ts check"
   },
   "lint-staged": {
     "*.{ts,tsx,js,mjs,cjs}": [
