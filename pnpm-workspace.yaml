@@ -1,3 +1,7 @@
 packages:
   - apps/*
   - packages/*
+# Dependency install scripts must be approved one by one.
+# esbuild (via tsx): denied; its script only re-checks the platform binary, which pnpm installs anyway.
+allowBuilds:
+  esbuild: false
