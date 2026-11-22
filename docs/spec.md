@@ -1,4 +1,4 @@
-# Crab Game: Game Design & Technical Spec (v0.4.1)
+# Crab Game: Game Design & Technical Spec (v0.4.2)
 
 _Status: draft. Items marked **[OPEN]** still need a decision. See §12 for the decision log._
 
@@ -183,9 +183,10 @@ Used while we design levels together, to check "is it beatable, and is it too ea
   - solvable yes/no
   - **minimum moves** (becomes the level's *par*)
   - number of distinct optimal solutions, **counted** during the search, not listed one by one (many = probably too easy)
-  - number of reachable states and dead ends (rough difficulty signal)
+  - number of reachable states and **dead ends** (rough difficulty signal). A dead end is a reachable state where every crab is still alive but no win can be reached any more ("stuck"). With no undo, these are the traps that force a restart.
   - one optimal solution, for the level-design discussion
-- **Limits:** configurable state cap and timeout. Hitting a limit is reported as "unknown", never as "unsolvable".
+- **Limits:** configurable state cap and timeout. Hitting a limit is reported as "unknown", never as "unsolvable". If a solution was already found, the level is still reported solvable with its par; counts that need the full search are reported as unknown.
+- CLI: `pnpm solve <file> [--json] [--max-states <n>] [--timeout-ms <n>]`. Exit code 0 = solvable, 1 = unsolvable or invalid level, 2 = unknown.
 - Runs in CI on every level file. A level that can't be solved fails the build.
 - Stars: 3★ = par, 2★ = par + small margin, 1★ = cleared. **[OPEN]** exact margins.
 
@@ -350,3 +351,4 @@ No text tutorial. The first 3–5 levels each teach one idea, in order: moving t
 | 2026-11-21 | The game launches as a public website on its own domain (static hosting) |
 | 2026-11-21 | Repo name `crab-game`; display name kept in one config value until the game is named |
 | 2026-11-22 | Engine API detail (no rule change): dead crabs leave `GameState.crabs`; events carry `subStep`; levels need ≥ 1 crab |
+| 2026-11-22 | Solver "dead end" = a stuck state (all crabs alive, no win reachable), not a losing move |
