@@ -1,4 +1,4 @@
-# Crab Game: Game Design & Technical Spec (v0.4)
+# Crab Game: Game Design & Technical Spec (v0.4.1)
 
 _Status: draft. Items marked **[OPEN]** still need a decision. See §12 for the decision log._
 
@@ -111,7 +111,7 @@ Hand-written JSON with an ASCII map, the same idea as the classic Sokoban text f
 - `C` is a shortcut for convenience. The parser turns it into a crab entity on a floor tile.
 - Things that need extra data go in `entities`, not new characters. Example for later: `{ "type": "teleporter", "a": [2,1], "b": [5,3] }`.
 - Level names are **translation keys** (`nameKey`), with the text in the locale files.
-- Validation: crabs = goals, no crab starts on a goal/lava/water, map is rectangular, `~` only connected to the border.
+- Validation: at least one crab, crabs = goals, no crab starts on a goal/lava/water, map is rectangular, `~` only connected to the border, only the characters above, no `entities` until a world defines them.
 
 ### 3.3 Build step (`packages/levels`)
 A build script compiles the JSON files into a level bundle. For each level it adds:
@@ -149,7 +149,7 @@ export const RULES_VERSION = 1;
 type Dir = 'U' | 'D' | 'L' | 'R';
 
 interface GameState {
-  crabs: number[];        // tile indexes, kept sorted
+  crabs: number[];        // tile indexes of living crabs, kept sorted (see below)
   moveCount: number;      // only moves where at least one crab moved (§2.3.5)
   status: 'playing' | 'won' | 'lost';
 }
@@ -166,6 +166,9 @@ function step(level: Level, state: GameState, dir: Dir): StepResult;
 function replay(level: Level, moves: Dir[]): GameState;
 ```
 
+- A crab that falls into water or lava is **removed from `crabs`** (it may have left the map, where there is no tile index); its `fell` event carries where it fell. So the crab count only changes on the move that loses.
+- Events carry a `subStep` (0 = the normal step, 1, 2, … = ice slide sub-steps) so the renderer can animate slides in order.
+- `step()` on a won or lost game does nothing (`moved: false`, no events).
 - Deterministic: same level + same rules version + same moves → same result, always.
 - Unit-tested with Vitest. Every rule in §2 gets tests, including chain blocking, blocked moves, ice slides and slides into hazards.
 
@@ -346,3 +349,4 @@ No text tutorial. The first 3–5 levels each teach one idea, in order: moving t
 | 2026-11-21 | No leaderboards and no backend at launch; any future identity is server-issued |
 | 2026-11-21 | The game launches as a public website on its own domain (static hosting) |
 | 2026-11-21 | Repo name `crab-game`; display name kept in one config value until the game is named |
+| 2026-11-22 | Engine API detail (no rule change): dead crabs leave `GameState.crabs`; events carry `subStep`; levels need ≥ 1 crab |
