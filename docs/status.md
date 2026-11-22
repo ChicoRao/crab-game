@@ -2,7 +2,7 @@
 
 A **snapshot of right now**, not a history. Overwrite it at the end of each working session; keep it under one page. History lives in git, PRs and issues (see "Where things are recorded" below).
 
-_Last updated: 2026-11-21_
+_Last updated: 2026-11-22_
 
 ---
 
@@ -22,7 +22,7 @@ _Last updated: 2026-11-21_
 4. Still owed from M0: i18n setup (with `apps/web`), postmortem template, GitHub issue board + labels.
 
 ## Blockers / waiting on
-- None.
+- PR #1 is pushed (`chore/monorepo-setup`) but the pull request is not opened yet: `gh` CLI is not installed, so it must be opened on github.com (or install `gh` and run `gh auth login` so Claude can). CI has not run yet.
 
 ## Context worth knowing
 - Stack: Vite + React + TypeScript; PixiJS inside React for the board only; pure TS rules engine shared by web and solver.
