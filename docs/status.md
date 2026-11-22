@@ -2,7 +2,7 @@
 
 A **snapshot of right now**, not a history. Overwrite it at the end of each working session; keep it under one page. History lives in git, PRs and issues (see "Where things are recorded" below).
 
-_Last updated: 2026-11-21_
+_Last updated: 2026-11-22_
 
 ---
 
@@ -10,26 +10,25 @@ _Last updated: 2026-11-21_
 **M0: Engine + tests + solver**
 
 ## Done recently
-- Planning complete: rules in `docs/spec.md` (v0.4), workflow in `docs/engineering.md` (v0.3), `CLAUDE.md` created.
-- Repo `crab-game` created on GitHub (public).
+- Initial commit on `main`: `CLAUDE.md` + `docs/` (spec v0.4, engineering v0.3).
 
 ## In progress
-- Nothing yet. Next session starts M0.
+- PR #1 (`chore/monorepo-setup`): pnpm workspace + Turborepo, strict TS 6.0, ESLint strict type-checked (engine purity + no hard-coded name rules), Prettier, Husky + lint-staged + commitlint, Vitest, CI (install, typecheck, lint, format, test, build), PR template, dev container, `@crab-game/config` holding `GAME_DISPLAY_NAME`.
 
 ## Next up
-1. Initial commit on `main`: `CLAUDE.md` + `docs/`.
-2. PR #1: monorepo + day-one tooling (engineering.md §13, M0 row), `.gitattributes`, display-name config value, CI.
-3. Turn on branch protection for `main` after PR #1's CI has run once.
-4. PR #2: engine, test-first (spec §2, §4; invariants in engineering.md §5).
-5. PR #3: levels package (validation + build step), solver CLI, 3 sample levels.
+1. Merge PR #1, then turn on branch protection for `main` (PR required, CI green, up to date, no force-push).
+2. PR #2: engine, test-first (spec §2, §4; invariants in engineering.md §5). Adds fast-check + coverage gate.
+3. PR #3: levels package (validation + build step), solver CLI, 3 sample levels; CI level-pipeline step.
+4. Still owed from M0: i18n setup (with `apps/web`), postmortem template, GitHub issue board + labels.
 
 ## Blockers / waiting on
-- None.
+- PR #1 is pushed (`chore/monorepo-setup`) but the pull request is not opened yet: `gh` CLI is not installed, so it must be opened on github.com (or install `gh` and run `gh auth login` so Claude can). CI has not run yet.
 
 ## Context worth knowing
 - Stack: Vite + React + TypeScript; PixiJS inside React for the board only; pure TS rules engine shared by web and solver.
 - Launch = public static website on our own domain; no backend, accounts or leaderboards.
-- Developer is on Windows: LF line endings via `.gitattributes`; `core.autocrlf input`.
+- Developer is on Windows: LF line endings via `.gitattributes`; `core.autocrlf input`. pnpm installed globally via npm (corepack enable needs admin).
+- Tool versions pinned exactly. TypeScript held at 6.0.3 because typescript-eslint 8.x supports TS < 6.1.
 - Open questions are tracked in spec §11 (game name/domain, art style, hosting, swipe, timer formula, stars, launch channels).
 
 ---
