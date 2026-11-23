@@ -1,4 +1,4 @@
-# Crab Game: Game Design & Technical Spec (v0.4.2)
+# Crab Game: Game Design & Technical Spec (v0.4.3)
 
 _Status: draft. Items marked **[OPEN]** still need a decision. See §12 for the decision log._
 
@@ -81,20 +81,23 @@ Hand-written JSON with an ASCII map, the same idea as the classic Sokoban text f
 
 ```json
 {
-  "id": "w1-03",
-  "nameKey": "levels.w1-03.name",
+  "id": "w1-02",
+  "nameKey": "levels.w1-02.name",
   "version": 1,
   "map": [
-    "~~~~~~~~",
-    "~C..#.G~",
-    "~.C....~",
-    "~..L..G~",
-    "~~~~~~~~"
+    "~~~~~~~",
+    "~#C.C.~",
+    "~.....~",
+    "~.....~",
+    "~..GG.~",
+    "~~~~~~~"
   ],
   "entities": [],
   "timeLimitSec": null
 }
 ```
+
+_(The real level `w1-02`, "walls separate crabs": press left once and the wall holds one crab while the other closes the gap. Level files live in `packages/levels/levels/<id>.json`; the file name must match the `id`.)_
 
 | Char | Meaning |
 |---|---|
@@ -114,11 +117,13 @@ Hand-written JSON with an ASCII map, the same idea as the classic Sokoban text f
 - Validation: at least one crab, crabs = goals, no crab starts on a goal/lava/water, map is rectangular, `~` only connected to the border, only the characters above, no `entities` until a world defines them.
 
 ### 3.3 Build step (`packages/levels`)
-A build script compiles the JSON files into a level bundle. For each level it adds:
+A build script (`pnpm levels:build`) compiles the JSON files into a level bundle (`packages/levels/src/generated/levels.json`, committed). For each level it adds:
 - `hash`: SHA-256 of the **gameplay-relevant content only**: normalized map + entities + `rulesVersion`. Not the name or time limit, so renaming or retiming a level doesn't change its identity.
 - `par` and a golden solution from the solver.
 
 The hash is computed here, at build time, so the engine stays pure (no crypto calls, no async).
+
+`pnpm levels:check` (run in CI) rebuilds everything and fails if: a level is invalid or not proven solvable ("unknown" fails too), the committed bundle is out of date, a map changed without a `version` bump, or a par/solution changed with neither a `version` nor a `RULES_VERSION` bump. `levels:build` refuses the same versioning cases, so goldens can't be regenerated just to make CI pass.
 
 ### 3.4 Runtime format (what the engine uses)
 - Terrain is parsed once into a flat typed array: `Uint8Array` of length `width × height`, indexed `y * width + x`, values from a `Tile` enum (`Floor = 0`, `Wall = 1`, …).
@@ -352,3 +357,4 @@ No text tutorial. The first 3–5 levels each teach one idea, in order: moving t
 | 2026-11-21 | Repo name `crab-game`; display name kept in one config value until the game is named |
 | 2026-11-22 | Engine API detail (no rule change): dead crabs leave `GameState.crabs`; events carry `subStep`; levels need ≥ 1 crab |
 | 2026-11-22 | Solver "dead end" = a stuck state (all crabs alive, no win reachable), not a losing move |
+| 2026-11-22 | First three levels approved: w1-01 moving together, w1-02 walls separate crabs, w1-03 water is deadly |

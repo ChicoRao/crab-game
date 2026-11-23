@@ -3,3 +3,6 @@ dist/
 coverage/
 # Docs are hand-formatted prose; don't let Prettier re-wrap them.
 *.md
+packages/levels/src/generated/
+# Level maps are hand-laid-out grids (one row per line); keep them readable.
+packages/levels/levels/

@@ -1,0 +1,91 @@
+[
+  {
+    "id": "w1-01",
+    "version": 1,
+    "rulesVersion": 1,
+    "hash": "3e4b5a613ee8c17a635def61713ed5fb38ca22270b1863c466e17708c7494f78",
+    "par": 6,
+    "solution": [
+      "D",
+      "D",
+      "D",
+      "R",
+      "R",
+      "R"
+    ],
+    "source": {
+      "id": "w1-01",
+      "nameKey": "levels.w1-01.name",
+      "version": 1,
+      "map": [
+        "~~~~~~~",
+        "~C....~",
+        "~C....~",
+        "~.....~",
+        "~...G.~",
+        "~...G.~",
+        "~~~~~~~"
+      ],
+      "entities": [],
+      "timeLimitSec": null
+    }
+  },
+  {
+    "id": "w1-02",
+    "version": 1,
+    "rulesVersion": 1,
+    "hash": "a898d959e54e88f21b29fc1317c77bd27837423047060813e6a5ff9abdff8002",
+    "par": 5,
+    "solution": [
+      "L",
+      "D",
+      "D",
+      "D",
+      "R"
+    ],
+    "source": {
+      "id": "w1-02",
+      "nameKey": "levels.w1-02.name",
+      "version": 1,
+      "map": [
+        "~~~~~~~",
+        "~#C.C.~",
+        "~.....~",
+        "~.....~",
+        "~..GG.~",
+        "~~~~~~~"
+      ],
+      "entities": [],
+      "timeLimitSec": null
+    }
+  },
+  {
+    "id": "w1-03",
+    "version": 1,
+    "rulesVersion": 1,
+    "hash": "e073382ed200e2ccca752de0b9458301dacfb6c05aa6e40563c25b89541a8eae",
+    "par": 6,
+    "solution": [
+      "R",
+      "R",
+      "D",
+      "D",
+      "L",
+      "L"
+    ],
+    "source": {
+      "id": "w1-03",
+      "nameKey": "levels.w1-03.name",
+      "version": 1,
+      "map": [
+        "~~~~~~",
+        "~CC..~",
+        "~~~..~",
+        "~GG..~",
+        "~~~~~~"
+      ],
+      "entities": [],
+      "timeLimitSec": null
+    }
+  }
+]

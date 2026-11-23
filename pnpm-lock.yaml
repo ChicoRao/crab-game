@@ -220,6 +220,15 @@ importers:
         specifier: 4.10.2
         version: 4.10.2
 
+  packages/levels:
+    dependencies:
+      '@crab-game/engine':
+        specifier: workspace:*
+        version: link:../engine
+      '@crab-game/solver':
+        specifier: workspace:*
+        version: link:../solver
+
   packages/solver:
     dependencies:
       '@crab-game/engine':
