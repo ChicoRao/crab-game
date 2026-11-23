@@ -1,0 +1,31 @@
+{
+  "app": {
+    "title": "{{name}}",
+    "help": "Arrow keys or WASD move every crab at once. R restarts."
+  },
+  "hud": {
+    "level": "Level {{number}}: {{name}}",
+    "moves_one": "{{count}} move · par {{par}}",
+    "moves_other": "{{count}} moves · par {{par}}"
+  },
+  "actions": {
+    "restart": "Restart (R)",
+    "previous": "Previous level",
+    "next": "Next level"
+  },
+  "status": {
+    "won_one": "Cleared in {{count}} move! Par is {{par}}.",
+    "won_other": "Cleared in {{count}} moves! Par is {{par}}.",
+    "lostWater": "A crab fell into the sea. Press R to restart.",
+    "lostLava": "A crab walked into lava. Press R to restart.",
+    "allCleared": "That's every level for now."
+  },
+  "board": {
+    "label": "Game board"
+  },
+  "levels": {
+    "w1-01": { "name": "Moving together" },
+    "w1-02": { "name": "Walls separate crabs" },
+    "w1-03": { "name": "Water is deadly" }
+  }
+}

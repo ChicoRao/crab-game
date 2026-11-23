@@ -1,25 +1,9 @@
 import { createHash } from 'node:crypto';
-import {
-  LevelValidationError,
-  parseLevel,
-  RULES_VERSION,
-  type Dir,
-  type LevelJson,
-} from '@crab-game/engine';
+import { LevelValidationError, parseLevel, RULES_VERSION, type LevelJson } from '@crab-game/engine';
 import { solve, type SolveOptions } from '@crab-game/solver';
+import type { BuiltLevel } from './types';
 
-/** A level as stored in the bundle (spec §3.3). */
-export interface BuiltLevel {
-  id: string;
-  version: number;
-  rulesVersion: number;
-  /** SHA-256 of the gameplay-relevant content: map + entities + rules version. */
-  hash: string;
-  par: number;
-  /** The golden solution: replays to `won` in exactly `par` moves. */
-  solution: Dir[];
-  source: LevelJson;
-}
+export type { BuiltLevel };
 
 export interface BuildResult {
   levels: BuiltLevel[];

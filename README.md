@@ -19,6 +19,7 @@ Or open the repo in the dev container (`.devcontainer/`) and skip the above.
 
 | Script | What it does |
 |---|---|
+| `pnpm dev` | Run the web game locally (Vite dev server) |
 | `pnpm typecheck` | TypeScript in every package |
 | `pnpm lint` | ESLint (strict, type-checked; engine purity rules) |
 | `pnpm format` / `pnpm format:check` | Prettier |

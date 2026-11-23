@@ -1,5 +1,5 @@
 import bundle from './generated/levels.json' with { type: 'json' };
-import type { BuiltLevel } from './pipeline';
+import type { BuiltLevel } from './types';
 
 export type { BuiltLevel };
 
