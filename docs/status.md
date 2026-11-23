@@ -2,31 +2,32 @@
 
 A **snapshot of right now**, not a history. Overwrite it at the end of each working session; keep it under one page. History lives in git, PRs and issues (see "Where things are recorded" below).
 
-_Last updated: 2026-11-22_
+_Last updated: 2026-11-23_
 
 ---
 
 ## Current milestone
-**M0: Engine + tests + solver**: the core is done once PR #4 merges.
+**M0: Engine + tests + solver**: core done (all §2 rules tested, solver runs on sample levels, level build step works). Only chores left before M1.
 
 ## Done recently
-- PR #2 merged: `packages/engine` (rules, 44 tests incl. property tests, 100% coverage).
-- PR #3 merged: `packages/solver` + `pnpm solve <file>` (par, optimal-solution count, reachable + stuck states; cross-checked against brute force).
+- PR #2: `packages/engine` (rules, 44 tests incl. property tests, 100% coverage).
+- PR #3: `packages/solver` + `pnpm solve <file>`.
+- PR #4: `packages/levels` (`pnpm levels:build` / `levels:check`, CI "Levels" step, golden replays) + 3 approved levels: w1-01 moving together (par 6), w1-02 walls separate crabs (par 5), w1-03 water is deadly (par 6).
 
 ## In progress
-- PR #4 (`feat/levels`): `packages/levels` with the build step (`pnpm levels:build`: hash, par, golden solution into a committed bundle), `pnpm levels:check` in CI (enforces the version-bump rules), golden replay tests, and the 3 approved onboarding levels: w1-01 moving together (par 6), w1-02 walls separate crabs (par 5), w1-03 water is deadly (par 6).
+- Nothing.
 
 ## Next up
-1. Squash-merge PR #4, then turn on branch protection for `main` in GitHub settings (PR required, CI check "Typecheck, lint, test, build" required, up to date, no force-push, squash only).
-2. Finish M0 chores: postmortem template; GitHub labels + issue board (by hand on github.com).
-3. M1 start: `apps/web` (Vite + React + PixiJS) with i18n set up from the start, including the level names: w1-01 "Moving together", w1-02 "Walls separate crabs", w1-03 "Water is deadly" (working titles; `nameKey`s already in the level files).
-4. Next levels (to reach M1's 10): crabs block each other, then lava (spec §10.1).
+1. Turn on branch protection for `main` in GitHub settings: PR required, required check "Typecheck, lint, test, build", up to date, no force-push, squash merge only.
+2. M0 chores: postmortem template (`docs/postmortems/`); GitHub labels + issue board (by hand on github.com).
+3. M1 start: `apps/web` (Vite + React + PixiJS) with i18n from the start, including level names: w1-01 "Moving together", w1-02 "Walls separate crabs", w1-03 "Water is deadly" (working titles; `nameKey`s are in the level files). Developer wants something playable soon, so a rough playable page early in M1 is welcome.
+4. More levels toward M1's 10: crabs block each other, then lava (spec §10.1). Design in chat with `pnpm solve` reports before committing.
 
 ## Ideas parked
 - Level generator (random maps + solver filters, we curate). Agreed to revisit later (M4 content), not now.
 
 ## Blockers / waiting on
-- None. No `gh` CLI on purpose: the developer opens and squash-merges PRs on github.com; Claude pushes branches and drafts PR descriptions.
+- None. No `gh` CLI on purpose: the developer opens and squash-merges PRs on github.com; Claude pushes branches and drafts PR descriptions (title + body to paste). When squashing a multi-commit PR, set the commit title to the PR title (GitHub defaults to the branch name; #4 landed as `Feat/levels (#4)`).
 
 ## Context worth knowing
 - Stack: Vite + React + TypeScript; PixiJS inside React for the board only; pure TS rules engine shared by web and solver.
