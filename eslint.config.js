@@ -38,6 +38,20 @@ export default tseslint.config(
     files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
     ...tseslint.configs.disableTypeChecked,
   },
+  // No user-facing text in components: every string goes through t() (docs/engineering.md §2.1).
+  {
+    files: ['apps/web/**/*.tsx'],
+    rules: {
+      'no-restricted-syntax': [
+        'error',
+        noHardCodedName,
+        {
+          selector: 'JSXText[value=/[^\\s]/]',
+          message: 'User-facing text belongs in locales/en.json; use t().',
+        },
+      ],
+    },
+  },
   {
     files: ['packages/config/**'],
     rules: { 'no-restricted-syntax': 'off' },
