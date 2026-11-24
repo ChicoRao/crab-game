@@ -1,4 +1,4 @@
-# Crab Game: Game Design & Technical Spec (v0.4.3)
+# Crab Game: Game Design & Technical Spec (v0.4.4)
 
 _Status: draft. Items marked **[OPEN]** still need a decision. See §12 for the decision log._
 
@@ -316,7 +316,7 @@ Ad placements (when enabled): interstitial between levels (not every level), rew
 |---|---|---|
 | M0 | Engine + tests + solver | All §2 rules pass tests; solver runs on sample levels; level build step works |
 | M1 | Playable prototype | 10 hand-made levels playable in the browser with keyboard, deployed to a preview URL |
-| M2 | Mobile + polish | D-pad, responsive layout, autotiled art, animations, sound, settings (timer, reduced motion), local save, level select, personal stats |
+| M2 | Mobile + polish | D-pad, responsive layout, autotiled art, animations, sound, settings (timer, reduced motion), local save, home page (game name, Play / Continue, Levels, Settings), level select (cleared levels + stars), personal stats |
 | M3 | Public launch | ~20–30 levels, game name + domain live, link previews/SEO basics, PlatformAdapter, launch channels chosen (§9.1), privacy policy |
 | M4 | Content & growth | Ice world, cosmetics, level editor, more levels, optional PWA |
 | M5 | Online (only if approved) | Daily puzzle and/or accounts, per §8.3 |
@@ -358,3 +358,4 @@ No text tutorial. The first 3–5 levels each teach one idea, in order: moving t
 | 2026-11-22 | Engine API detail (no rule change): dead crabs leave `GameState.crabs`; events carry `subStep`; levels need ≥ 1 crab |
 | 2026-11-22 | Solver "dead end" = a stuck state (all crabs alive, no win reachable), not a losing move |
 | 2026-11-22 | First three levels approved: w1-01 moving together, w1-02 walls separate crabs, w1-03 water is deadly |
+| 2026-11-23 | Add a home page to M2, next to level select (both come after local save so they can show progress) |
