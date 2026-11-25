@@ -28,6 +28,11 @@
     "w1-02": { "name": "Walls separate crabs" },
     "w1-03": { "name": "Water is deadly" },
     "w1-04": { "name": "Crabs block each other" },
-    "w1-05": { "name": "Wall in the middle" }
+    "w1-05": { "name": "Wall in the middle" },
+    "w1-06": { "name": "Two pillars" },
+    "w1-07": { "name": "Funnel" },
+    "w1-08": { "name": "The bay" },
+    "w1-09": { "name": "Three pillars" },
+    "w1-10": { "name": "Open bay" }
   }
 }
