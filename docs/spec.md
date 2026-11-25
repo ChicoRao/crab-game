@@ -1,4 +1,4 @@
-# Crab Game: Game Design & Technical Spec (v0.4.4)
+# Crab Game: Game Design & Technical Spec (v0.4.5)
 
 _Status: draft. Items marked **[OPEN]** still need a decision. See §12 for the decision log._
 
@@ -323,7 +323,9 @@ Ad placements (when enabled): interstitial between levels (not every level), rew
 | M6 | Later | Teleporters, more worlds, app-store build |
 
 ### 10.1 Onboarding
-No text tutorial. The first 3–5 levels each teach one idea, in order: moving together → walls separate crabs → water is deadly → crabs block each other → lava. Later worlds introduce one new mechanic each the same way.
+**World 1 uses only floor, walls, goals and water.** No lava or ice. Lava is the new mechanic of **world 2**; ice gets its own world later (M4).
+
+No text tutorial. The first levels of world 1 each teach one idea, in order: moving together → walls separate crabs → water is deadly → crabs block each other (w1-01 to w1-04). The rest of world 1 (w1-05 to w1-10) combines those ideas with no new tiles, getting harder toward the big 3-crab finales (w1-09, w1-10). Later worlds introduce one new mechanic each the same way: the first levels teach it alone, then mix it with what came before.
 
 ---
 
@@ -359,3 +361,4 @@ No text tutorial. The first 3–5 levels each teach one idea, in order: moving t
 | 2026-11-22 | Solver "dead end" = a stuck state (all crabs alive, no win reachable), not a losing move |
 | 2026-11-22 | First three levels approved: w1-01 moving together, w1-02 walls separate crabs, w1-03 water is deadly |
 | 2026-11-23 | Add a home page to M2, next to level select (both come after local save so they can show progress) |
+| 2026-11-25 | World 1 = floor, walls, goals and water only; lava moves to world 2 (was the 5th onboarding idea). w1-04 crabs block each other; w1-05 to w1-10 are combination levels; big 3-crab maps (par 20+) are the world 1 finales (w1-09, w1-10) |
