@@ -109,5 +109,131 @@
       "entities": [],
       "timeLimitSec": null
     }
+  },
+  {
+    "id": "w1-06",
+    "version": 1,
+    "rulesVersion": 1,
+    "hash": "96e041392c67c09df8a05dbe4a36e0db11544563165317c5fcca2d8306893464",
+    "par": 10,
+    "source": {
+      "id": "w1-06",
+      "nameKey": "levels.w1-06.name",
+      "version": 1,
+      "map": [
+        "~~~~~~~~~",
+        "~.C..C..~",
+        "~...#...~",
+        "~.#...#.~",
+        "~.......~",
+        "~#.....#~",
+        "~...GG..~",
+        "~~~~~~~~~"
+      ],
+      "entities": [],
+      "timeLimitSec": null
+    }
+  },
+  {
+    "id": "w1-07",
+    "version": 1,
+    "rulesVersion": 1,
+    "hash": "97e88082692431fbe0964a3a37d03a04ee86a0c5151b5cf2e0964a72950affc9",
+    "par": 11,
+    "source": {
+      "id": "w1-07",
+      "nameKey": "levels.w1-07.name",
+      "version": 1,
+      "map": [
+        "~~~~~~~~~~~",
+        "~#C.C.C...~",
+        "~.........~",
+        "~.........~",
+        "~~~~...~~~~",
+        "~~~~...~~#~",
+        "~.........~",
+        "~#........~",
+        "~...GGG...~",
+        "~~~~~~~~~~~"
+      ],
+      "entities": [],
+      "timeLimitSec": null
+    }
+  },
+  {
+    "id": "w1-08",
+    "version": 1,
+    "rulesVersion": 1,
+    "hash": "6fe0a092001d5c685646e22a3f247c9dd1c3e2f0cc69ab6392a28aa42a4e652c",
+    "par": 14,
+    "source": {
+      "id": "w1-08",
+      "nameKey": "levels.w1-08.name",
+      "version": 1,
+      "map": [
+        "~~~~~~~~~~",
+        "~..C.....~",
+        "~.....#..~",
+        "~.#......~",
+        "~.....C..~",
+        "~~~..#...~",
+        "~........~",
+        "~#..G..G.~",
+        "~~~~~~~~~~"
+      ],
+      "entities": [],
+      "timeLimitSec": null
+    }
+  },
+  {
+    "id": "w1-09",
+    "version": 1,
+    "rulesVersion": 1,
+    "hash": "031933e1071bcecb4df40c3e0e83577dc8b38cfdd433d415ccee1832e45fcbed",
+    "par": 23,
+    "source": {
+      "id": "w1-09",
+      "nameKey": "levels.w1-09.name",
+      "version": 1,
+      "map": [
+        "~~~~~~~~~",
+        "~.......~",
+        "~.C.#.C.~",
+        "~.......~",
+        "~#.....#~",
+        "~...C...~",
+        "~.......~",
+        "~~.GGG.~~",
+        "~~~~~~~~~"
+      ],
+      "entities": [],
+      "timeLimitSec": null
+    }
+  },
+  {
+    "id": "w1-10",
+    "version": 1,
+    "rulesVersion": 1,
+    "hash": "096146d649677972d175001d0ad4ab515044bac503a8069227602bea33b57ebe",
+    "par": 26,
+    "source": {
+      "id": "w1-10",
+      "nameKey": "levels.w1-10.name",
+      "version": 1,
+      "map": [
+        "~~~~~~~~~~~",
+        "~.........~",
+        "~.C.#..C..~",
+        "~.........~",
+        "~#.....#..~",
+        "~.........~",
+        "~...C.....~",
+        "~.........~",
+        "~~~.GGG.~~~",
+        "~~~~~~~~~~~"
+      ],
+      "entities": [],
+      "timeLimitSec": null
+    }
   }
 ]
