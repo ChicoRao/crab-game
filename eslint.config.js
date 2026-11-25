@@ -52,6 +52,28 @@ export default tseslint.config(
       ],
     },
   },
+  // Golden solutions must not ship to players: the web app imports only the playable bundle.
+  {
+    files: ['apps/web/**/*.{ts,tsx}'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              group: [
+                '@crab-game/levels/golden',
+                '@crab-game/levels/src/*',
+                '**/generated/solutions.json',
+              ],
+              message:
+                'Golden solutions must not ship to players; import LEVELS from @crab-game/levels.',
+            },
+          ],
+        },
+      ],
+    },
+  },
   {
     files: ['packages/config/**'],
     rules: { 'no-restricted-syntax': 'off' },

@@ -5,14 +5,6 @@
     "rulesVersion": 1,
     "hash": "3e4b5a613ee8c17a635def61713ed5fb38ca22270b1863c466e17708c7494f78",
     "par": 6,
-    "solution": [
-      "D",
-      "D",
-      "D",
-      "R",
-      "R",
-      "R"
-    ],
     "source": {
       "id": "w1-01",
       "nameKey": "levels.w1-01.name",
@@ -36,13 +28,6 @@
     "rulesVersion": 1,
     "hash": "a898d959e54e88f21b29fc1317c77bd27837423047060813e6a5ff9abdff8002",
     "par": 5,
-    "solution": [
-      "L",
-      "D",
-      "D",
-      "D",
-      "R"
-    ],
     "source": {
       "id": "w1-02",
       "nameKey": "levels.w1-02.name",
@@ -65,14 +50,6 @@
     "rulesVersion": 1,
     "hash": "e073382ed200e2ccca752de0b9458301dacfb6c05aa6e40563c25b89541a8eae",
     "par": 6,
-    "solution": [
-      "R",
-      "R",
-      "D",
-      "D",
-      "L",
-      "L"
-    ],
     "source": {
       "id": "w1-03",
       "nameKey": "levels.w1-03.name",
@@ -94,13 +71,6 @@
     "rulesVersion": 1,
     "hash": "d2f13818451bac825770967635c6a2e4b23442f1a48f4c8583c324eb357b92b3",
     "par": 5,
-    "solution": [
-      "L",
-      "L",
-      "D",
-      "D",
-      "D"
-    ],
     "source": {
       "id": "w1-04",
       "nameKey": "levels.w1-04.name",
@@ -123,17 +93,6 @@
     "rulesVersion": 1,
     "hash": "ba05764f3cf5f473b3e50155eb5226c0830a0ff2275419079076820c28e0460a",
     "par": 9,
-    "solution": [
-      "R",
-      "D",
-      "L",
-      "D",
-      "R",
-      "R",
-      "D",
-      "L",
-      "L"
-    ],
     "source": {
       "id": "w1-05",
       "nameKey": "levels.w1-05.name",

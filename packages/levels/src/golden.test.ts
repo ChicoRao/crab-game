@@ -1,6 +1,6 @@
 import { parseLevel, replay, RULES_VERSION } from '@crab-game/engine';
 import { describe, expect, it } from 'vitest';
-import { LEVELS } from './index';
+import { GOLDEN_LEVELS as LEVELS } from './golden';
 import { hashLevel } from './pipeline';
 
 // Golden replays (docs/engineering.md §5): catch accidental rule changes.

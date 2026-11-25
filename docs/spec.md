@@ -1,4 +1,4 @@
-# Crab Game: Game Design & Technical Spec (v0.4.5)
+# Crab Game: Game Design & Technical Spec (v0.4.6)
 
 _Status: draft. Items marked **[OPEN]** still need a decision. See §12 for the decision log._
 
@@ -120,6 +120,8 @@ _(The real level `w1-02`, "walls separate crabs": press left once and the wall h
 A build script (`pnpm levels:build`) compiles the JSON files into a level bundle (`packages/levels/src/generated/levels.json`, committed). For each level it adds:
 - `hash`: SHA-256 of the **gameplay-relevant content only**: normalized map + entities + `rulesVersion`. Not the name or time limit, so renaming or retiming a level doesn't change its identity.
 - `par` and a golden solution from the solver.
+
+Golden solutions are written to a separate file (`generated/solutions.json`, also committed) that only tests and tools import. **The web app never ships solutions to players**: it imports only `levels.json` (hash, par, map), and lint blocks it from importing the solutions.
 
 The hash is computed here, at build time, so the engine stays pure (no crypto calls, no async).
 
@@ -362,3 +364,4 @@ No text tutorial. The first levels of world 1 each teach one idea, in order: mov
 | 2026-11-22 | First three levels approved: w1-01 moving together, w1-02 walls separate crabs, w1-03 water is deadly |
 | 2026-11-23 | Add a home page to M2, next to level select (both come after local save so they can show progress) |
 | 2026-11-25 | World 1 = floor, walls, goals and water only; lava moves to world 2 (was the 5th onboarding idea). w1-04 crabs block each other; w1-05 to w1-10 are combination levels; big 3-crab maps (par 20+) are the world 1 finales (w1-09, w1-10) |
+| 2026-11-25 | Golden solutions stay in the repo (the solver is public anyway, and golden replays need them) but are never shipped to players: separate `solutions.json`, web imports only the playable bundle |
