@@ -87,5 +87,34 @@
       "entities": [],
       "timeLimitSec": null
     }
+  },
+  {
+    "id": "w1-04",
+    "version": 1,
+    "rulesVersion": 1,
+    "hash": "d2f13818451bac825770967635c6a2e4b23442f1a48f4c8583c324eb357b92b3",
+    "par": 5,
+    "solution": [
+      "L",
+      "L",
+      "D",
+      "D",
+      "D"
+    ],
+    "source": {
+      "id": "w1-04",
+      "nameKey": "levels.w1-04.name",
+      "version": 1,
+      "map": [
+        "~~~~~~~~",
+        "~#C.C.C~",
+        "~......~",
+        "~......~",
+        "~.GGG..~",
+        "~~~~~~~~"
+      ],
+      "entities": [],
+      "timeLimitSec": null
+    }
   }
 ]

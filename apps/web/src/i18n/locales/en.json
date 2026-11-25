@@ -26,6 +26,7 @@
   "levels": {
     "w1-01": { "name": "Moving together" },
     "w1-02": { "name": "Walls separate crabs" },
-    "w1-03": { "name": "Water is deadly" }
+    "w1-03": { "name": "Water is deadly" },
+    "w1-04": { "name": "Crabs block each other" }
   }
 }
