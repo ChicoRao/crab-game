@@ -7,7 +7,7 @@ import {
   type GameState,
   type Level,
 } from '@crab-game/engine';
-import type { BuiltLevel } from '@crab-game/levels';
+import type { PlayableLevel } from '@crab-game/levels';
 import { createStore } from 'zustand/vanilla';
 
 /** A move the board is animating. `seq` tells one animation from the next. */
@@ -18,7 +18,7 @@ export interface Animation {
 }
 
 export interface GameStore {
-  readonly levels: readonly BuiltLevel[];
+  readonly levels: readonly PlayableLevel[];
   readonly levelIndex: number;
   readonly level: Level;
   readonly state: GameState;
@@ -37,13 +37,13 @@ export interface GameStore {
   selectLevel(index: number): void;
 }
 
-function levelAt(levels: readonly BuiltLevel[], index: number): Level {
+function levelAt(levels: readonly PlayableLevel[], index: number): Level {
   const built = levels[index];
   if (built === undefined) throw new RangeError(`No level at index ${String(index)}`);
   return parseLevel(built.source);
 }
 
-export function createGameStore(levels: readonly BuiltLevel[]) {
+export function createGameStore(levels: readonly PlayableLevel[]) {
   let seq = 0;
   const firstLevel = levelAt(levels, 0);
 

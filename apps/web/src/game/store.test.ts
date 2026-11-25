@@ -1,9 +1,9 @@
 import type { LevelJson } from '@crab-game/engine';
-import type { BuiltLevel } from '@crab-game/levels';
+import type { PlayableLevel } from '@crab-game/levels';
 import { describe, expect, it } from 'vitest';
 import { createGameStore } from './store';
 
-function built(id: string, map: string[]): BuiltLevel {
+function built(id: string, map: string[]): PlayableLevel {
   const source: LevelJson = {
     id,
     nameKey: `levels.${id}.name`,
@@ -12,7 +12,7 @@ function built(id: string, map: string[]): BuiltLevel {
     entities: [],
     timeLimitSec: null,
   };
-  return { id, version: 1, rulesVersion: 1, hash: id, par: 0, solution: [], source };
+  return { id, version: 1, rulesVersion: 1, hash: id, par: 0, source };
 }
 
 // One crab with a wall on its left and a goal two tiles to its right.
